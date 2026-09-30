@@ -1,81 +1,942 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Gigay Wali Education & Career Excellence Center — From Village to the World">
-<title>GECEC | From Village to the World</title>
-<style>
-:root{--g:#0b5d4b;--d:#073f34;--gold:#e4b957;--light:#eef8f4;--ink:#17332d;--muted:#60736d}
-*{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--ink);line-height:1.65}a{text-decoration:none;color:inherit}.wrap{max-width:1120px;width:92%;margin:auto}
-nav{position:sticky;top:0;z-index:5;background:#fffffff5;border-bottom:1px solid #ddd}.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;color:var(--g);font-size:1.1rem}.links{display:flex;gap:20px;font-size:.9rem}.links a:hover{color:var(--g)}
-.hero{background:linear-gradient(135deg,var(--d),var(--g));color:white;padding:90px 0}.heroGrid{display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:center}.tag{display:inline-block;background:#ffffff18;border:1px solid #ffffff30;padding:6px 13px;border-radius:30px;font-size:.8rem;font-weight:700}.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);line-height:1;margin:20px 0}.hero h1 span{color:var(--gold)}.hero p{color:#dcece7}.cardHero,.card{background:white;border:1px solid #e5eee9;border-radius:18px;padding:25px;box-shadow:0 10px 30px #073f3412}.cardHero{background:#ffffff14;border-color:#ffffff25;color:white}.big{font-size:3rem;font-weight:800;color:var(--gold)}
-.btn{display:inline-block;padding:12px 18px;border-radius:9px;font-weight:700;margin:8px 8px 0 0}.primary{background:var(--gold);color:var(--ink)}.outline{border:1px solid #ffffff70;color:white}
-section{padding:75px 0}.cream{background:#fffaf0}.soft{background:#f7faf8}.head{text-align:center;max-width:750px;margin:0 auto 40px}.label{color:var(--g);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.head h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:10px 0}.head p,.card p{color:var(--muted)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.quote{font-size:1.25rem;font-weight:700;color:var(--d);border-left:5px solid var(--gold);padding-left:18px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.icon{font-size:1.5rem;background:var(--light);width:48px;height:48px;display:grid;place-items:center;border-radius:12px}.card h3{margin:12px 0 5px}.card ul{color:var(--muted);padding-left:20px}
-.schedule,.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.day{background:white;border-top:5px solid var(--g);border-radius:16px;padding:25px;box-shadow:0 8px 25px #073f3410}.day h3{color:var(--g);margin-top:0}
-.timeline{grid-template-columns:repeat(4,1fr)}.year{background:var(--g);color:white;border-radius:16px;padding:23px}.year strong{display:block;color:var(--gold);font-size:1.5rem}
-.values{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}.value{padding:10px 17px;border-radius:30px;background:var(--light);color:var(--g);font-weight:700}
-.cta{background:linear-gradient(135deg,var(--d),var(--g));color:white;text-align:center}.cta h2{font-size:clamp(2rem,4vw,3.1rem);max-width:850px;margin:auto}.cta p{max-width:750px;margin:20px auto;color:#dcece7}
-footer{background:#052e27;color:#cfe0db;padding:30px 0}.foot{display:flex;justify-content:space-between;gap:20px}.small{font-size:.85rem}
-@media(max-width:800px){.links{display:none}.heroGrid,.two{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.schedule,.timeline{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){section{padding:55px 0}.grid,.schedule,.timeline{grid-template-columns:1fr}.foot{flex-direction:column}}
-</style></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gigay Wali Education & Career Excellence Center — From Village to the World">
+  <title>GECEC | From Village to the World</title>
+  <style>
+    /* ----- modern reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --g: #0b5d4b;
+      --d: #073f34;
+      --gold: #e4b957;
+      --light: #eef8f4;
+      --ink: #17332d;
+      --muted: #60736d;
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass: rgba(255, 255, 255, 0.1);
+      --shadow-sm: 0 8px 20px rgba(7, 63, 52, 0.08);
+      --shadow-md: 0 20px 35px -8px rgba(7, 63, 52, 0.15);
+      --radius-lg: 2rem;
+      --radius-md: 1.25rem;
+      --transition: all 0.25s ease;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: #fbfefd;
+      color: var(--ink);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* custom smooth scroll with offset for sticky nav */
+    html {
+      scroll-padding-top: 80px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    /* ----- sticky nav with blur ----- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(7, 63, 52, 0.08);
+      transition: var(--transition);
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--g);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand::before {
+      content: "🌱";
+      font-size: 1.6rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+    }
+
+    .links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .links a {
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+
+    .links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .links a:hover {
+      color: var(--g);
+    }
+
+    .links a:hover::after {
+      width: 100%;
+    }
+
+    /* ----- hero with subtle motion & gradient ----- */
+    .hero {
+      background: linear-gradient(135deg, #073f34 0%, #0b5d4b 100%);
+      color: white;
+      padding: 100px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(228, 185, 87, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 18s infinite alternate ease-in-out;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 22s infinite alternate-reverse ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, -20px) scale(1.1); }
+    }
+
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      background: rgba(228, 185, 87, 0.25);
+      z-index: -1;
+      border-radius: 6px;
+    }
+
+    .hero p {
+      color: #d0e6df;
+      font-size: 1.15rem;
+      max-width: 600px;
+    }
+
+    .hero .btn {
+      margin-top: 1.8rem;
+    }
+
+    .cardHero {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.8rem;
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .cardHero:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(228, 185, 87, 0.5);
+    }
+
+    .big {
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cardHero h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cardHero p {
+      color: #c2d9d2;
+      font-size: 0.95rem;
+    }
+
+    /* ----- buttons ----- */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      color: var(--d);
+    }
+
+    .btn.primary:hover {
+      background: #d9aa45;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px -8px rgba(228, 185, 87, 0.4);
+    }
+
+    .btn.outline {
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      background: transparent;
+    }
+
+    .btn.outline:hover {
+      border-color: var(--gold);
+      background: rgba(228, 185, 87, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* ----- sections ----- */
+    section {
+      padding: 90px 0;
+    }
+
+    .cream {
+      background: #fffcf5;
+    }
+
+    .soft {
+      background: #f6fbf9;
+    }
+
+    .head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .label {
+      color: var(--g);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      background: var(--light);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0.25rem 0 1rem;
+    }
+
+    .head p {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    /* cards */
+    .card {
+      background: white;
+      border: 1px solid #e2efea;
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.6rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0.8rem 0 0.5rem;
+      color: var(--d);
+    }
+
+    .card p,
+    .card ul {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    .icon {
+      font-size: 1.8rem;
+      background: var(--light);
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      transition: var(--transition);
+    }
+
+    .card:hover .icon {
+      background: var(--gold);
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    /* two column layout */
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .quote {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--d);
+      border-left: 5px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    /* grid of cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    /* schedule */
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .day {
+      background: white;
+      border-top: 5px solid var(--g);
+      border-radius: 1.5rem;
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .day:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md);
+      border-top-color: var(--gold);
+    }
+
+    .day h3 {
+      color: var(--g);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .day ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .day li {
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed #e0ede7;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .day li::before {
+      content: "✦";
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    /* timeline */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .year {
+      background: var(--g);
+      color: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.4rem;
+      transition: var(--transition);
+      box-shadow: 0 15px 25px -10px rgba(7, 63, 52, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .year:hover {
+      background: var(--d);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -10px rgba(7, 63, 52, 0.5);
+    }
+
+    .year strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .year p, .year {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* values pills */
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+
+    .value {
+      padding: 12px 28px;
+      border-radius: 60px;
+      background: var(--light);
+      color: var(--g);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      cursor: default;
+      border: 1px solid transparent;
+    }
+
+    .value:hover {
+      background: var(--gold);
+      color: var(--d);
+      transform: translateY(-4px) scale(1.02);
+      border-color: var(--d);
+      box-shadow: 0 10px 18px -6px rgba(228, 185, 87, 0.4);
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #073f34, #0b5d4b);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(228, 185, 87, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s infinite alternate;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #cfe6df;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta .btn {
+      position: relative;
+      z-index: 2;
+      background: var(--gold);
+      color: var(--d);
+      padding: 16px 42px;
+      font-size: 1.1rem;
+      border-radius: 60px;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta .btn:hover {
+      background: white;
+      color: var(--d);
+      transform: scale(1.02) translateY(-3px);
+    }
+
+    /* footer */
+    footer {
+      background: #042620;
+      color: #b8d5cc;
+      padding: 2.5rem 0;
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .foot strong {
+      color: var(--gold);
+      font-size: 1.3rem;
+    }
+
+    .small {
+      font-size: 0.9rem;
+    }
+
+    /* ----- interactive hover & micro animations ----- */
+    .card, .day, .year, .btn, .value {
+      will-change: transform;
+    }
+
+    /* Back to top button */
+    .totop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--g);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 200;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .totop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .totop:hover {
+      background: var(--gold);
+      color: var(--d);
+      transform: translateY(-5px);
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .heroGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .two {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .schedule {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .links {
+        display: none;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .brand {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .schedule,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .foot {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .cardHero .big {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
 <body>
-<nav><div class="wrap nav"><a class="brand" href="#home">GECEC · Gigay Wali</a><div class="links"><a href="#about">About</a><a href="#work">Our Work</a><a href="#programme">Programme</a><a href="#selection">Selection</a><a href="#roadmap">2031 Roadmap</a></div></div></nav>
 
-<header class="hero" id="home"><div class="wrap heroGrid"><div>
-<span class="tag">A FREE COMMUNITY EDUCATION INITIATIVE</span>
-<h1>From Village <span>to the World</span></h1>
-<p><strong>Gigay Wali Education & Career Excellence Center (GECEC)</strong></p>
-<p>Empowering children and young people in Gigay Wali, District Narowal, through quality education, career guidance, modern skills and access to global opportunities.</p>
-<a class="btn primary" href="#about">Explore GECEC</a><a class="btn outline" href="#programme">View Programme</a>
-</div><div class="cardHero"><div class="big">2026</div><h2>First Student Cohort</h2><p>GECEC will begin with a selected group of promising students and grow into a comprehensive rural education and career center.</p></div></div></header>
+<nav>
+  <div class="wrap nav">
+    <a class="brand" href="#home">GECEC</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#work">Our Work</a>
+      <a href="#programme">Programme</a>
+      <a href="#selection">Selection</a>
+      <a href="#roadmap">2031 Roadmap</a>
+    </div>
+  </div>
+</nav>
 
-<section class="cream" id="about"><div class="wrap two"><div><div class="label">Who We Are</div><h2>Opening doors through education</h2><p>GECEC is a <strong>non-profit, free community service initiative</strong> created to provide the children and parents of Gigay Wali with educational guidance, career counseling, modern skills training and future planning.</p><p>Its purpose is to bridge the gap between rural students and educational, technological, professional and global opportunities.</p></div><div class="card"><div class="quote">“To provide every child of Gigay Wali with quality education, proper guidance, modern skills and equal opportunities.”</div><p>Our vision is to help students demonstrate their potential in Pakistan and around the world.</p></div></div></section>
+<header class="hero" id="home">
+  <div class="wrap heroGrid">
+    <div>
+      <span class="tag">A FREE COMMUNITY EDUCATION INITIATIVE</span>
+      <h1>From Village <span>to the World</span></h1>
+      <p><strong>Gigay Wali Education & Career Excellence Center (GECEC)</strong></p>
+      <p>Empowering children and young people in Gigay Wali, District Narowal, through quality education, career guidance, modern skills and access to global opportunities.</p>
+      <a class="btn primary" href="#about">Explore GECEC</a>
+      <a class="btn outline" href="#programme">View Programme</a>
+    </div>
+    <div class="cardHero">
+      <div class="big">2026</div>
+      <h2>First Student Cohort</h2>
+      <p>GECEC will begin with a selected group of promising students and grow into a comprehensive rural education and career center.</p>
+    </div>
+  </div>
+</header>
 
-<section id="work"><div class="wrap"><div class="head"><div class="label">Core Pillars</div><h2>Education, guidance and opportunity</h2><p>Academic learning combined with personal development, career awareness and future-ready skills.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">📚</div><h3>Academic Support</h3><p>Grades 1–10: Mathematics, English, Science, examinations, homework and effective study habits.</p></div>
-<div class="card"><div class="icon">💻</div><h3>Virtual School</h3><p>Live and recorded lessons, exercises, tests, monthly performance reports and parent feedback.</p></div>
-<div class="card"><div class="icon">🎯</div><h3>Student Counseling</h3><p>Goals, time management, confidence, personality development, discipline and exam strategies.</p></div>
-<div class="card"><div class="icon">👨‍👩‍👧</div><h3>Parents’ Academy</h3><p>Positive parenting, learning at home, technology use, child development and future planning.</p></div>
-<div class="card"><div class="icon">🧭</div><h3>Career Guidance</h3><p>Medicine, engineering, law, civil services, armed forces, education, technology and entrepreneurship.</p></div>
-<div class="card"><div class="icon">🎓</div><h3>Higher Education & Scholarships</h3><p>University admissions, entrance tests, merit and need-based scholarships and international study.</p></div>
-<div class="card"><div class="icon">🤖</div><h3>AI & Modern Skills</h3><p>AI tools, computer skills, freelancing, web development, graphic design and digital marketing.</p></div>
-<div class="card"><div class="icon">🌍</div><h3>Global Opportunities</h3><p>Study and career pathways in Pakistan, Germany, Australia, Canada and other destinations.</p></div>
-<div class="card"><div class="icon">🗣️</div><h3>Languages & Communication</h3><p>Spoken English, German language and communication skills for wider opportunities.</p></div>
-</div></div></section>
+<section class="cream" id="about">
+  <div class="wrap two">
+    <div>
+      <div class="label">Who We Are</div>
+      <h2>Opening doors through education</h2>
+      <p>GECEC is a <strong>non-profit, free community service initiative</strong> created to provide the children and parents of Gigay Wali with educational guidance, career counseling, modern skills training and future planning.</p>
+      <p>Its purpose is to bridge the gap between rural students and educational, technological, professional and global opportunities.</p>
+    </div>
+    <div class="card">
+      <div class="quote">“To provide every child of Gigay Wali with quality education, proper guidance, modern skills and equal opportunities.”</div>
+      <p>Our vision is to help students demonstrate their potential in Pakistan and around the world.</p>
+    </div>
+  </div>
+</section>
 
-<section class="soft" id="programme"><div class="wrap"><div class="head"><div class="label">Weekly Programme</div><h2>A consistent learning rhythm</h2></div><div class="schedule">
-<div class="day"><h3>Every Week</h3><ul><li>Mathematics</li><li>English</li><li>Student Counseling</li></ul></div>
-<div class="day"><h3>Every Sunday</h3><ul><li>Science</li><li>Career Guidance</li><li>Skills Development</li></ul></div>
-<div class="day"><h3>Every Month</h3><ul><li>Special Parents’ Session</li><li>Progress discussion</li><li>Future planning</li></ul></div>
-</div></div></section>
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Core Pillars</div>
+      <h2>Education, guidance and opportunity</h2>
+      <p>Academic learning combined with personal development, career awareness and future-ready skills.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="icon">📚</div><h3>Academic Support</h3><p>Grades 1–10: Mathematics, English, Science, examinations, homework and effective study habits.</p></div>
+      <div class="card"><div class="icon">💻</div><h3>Virtual School</h3><p>Live and recorded lessons, exercises, tests, monthly performance reports and parent feedback.</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Student Counseling</h3><p>Goals, time management, confidence, personality development, discipline and exam strategies.</p></div>
+      <div class="card"><div class="icon">👨‍👩‍👧</div><h3>Parents’ Academy</h3><p>Positive parenting, learning at home, technology use, child development and future planning.</p></div>
+      <div class="card"><div class="icon">🧭</div><h3>Career Guidance</h3><p>Medicine, engineering, law, civil services, armed forces, education, technology and entrepreneurship.</p></div>
+      <div class="card"><div class="icon">🎓</div><h3>Higher Education & Scholarships</h3><p>University admissions, entrance tests, merit and need-based scholarships and international study.</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>AI & Modern Skills</h3><p>AI tools, computer skills, freelancing, web development, graphic design and digital marketing.</p></div>
+      <div class="card"><div class="icon">🌍</div><h3>Global Opportunities</h3><p>Study and career pathways in Pakistan, Germany, Australia, Canada and other destinations.</p></div>
+      <div class="card"><div class="icon">🗣️</div><h3>Languages & Communication</h3><p>Spoken English, German language and communication skills for wider opportunities.</p></div>
+    </div>
+  </div>
+</section>
 
-<section id="selection"><div class="wrap"><div class="head"><div class="label">Student Selection</div><h2>Finding potential and commitment</h2><p>The initial phase will serve a limited number of promising, hardworking and talented students.</p></div><div class="two">
-<div class="card"><h3>Basic Criteria</h3><ul><li>Willingness to learn</li><li>Regular attendance</li><li>Parents’ cooperation</li><li>Teacher recommendation</li><li>Initial diagnostic assessment</li></ul></div>
-<div class="card"><h3>Our Approach</h3><p>Selection will consider more than academic marks. GECEC will look for commitment, potential, learning attitude and willingness to make consistent progress.</p></div>
-</div></div></section>
+<section class="soft" id="programme">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Weekly Programme</div>
+      <h2>A consistent learning rhythm</h2>
+    </div>
+    <div class="schedule">
+      <div class="day"><h3>Every Week</h3><ul><li>Mathematics</li><li>English</li><li>Student Counseling</li></ul></div>
+      <div class="day"><h3>Every Sunday</h3><ul><li>Science</li><li>Career Guidance</li><li>Skills Development</li></ul></div>
+      <div class="day"><h3>Every Month</h3><ul><li>Special Parents’ Session</li><li>Progress discussion</li><li>Future planning</li></ul></div>
+    </div>
+  </div>
+</section>
 
-<section class="soft"><div class="wrap"><div class="head"><div class="label">Leadership</div><h2>Community-driven structure</h2></div><div class="grid">
-<div class="card"><h3>Patrons</h3><p>Senior teachers, educationists and respected community members.</p></div>
-<div class="card"><h3>Chief Operating Officer</h3><p><strong>Mr. Tariq Mehmood</strong></p></div>
-<div class="card"><h3>Executive Coordinator</h3><p><strong>Mr. Tariq Taj</strong></p></div>
-<div class="card"><h3>Administrator</h3><p><strong>Mr. Farooq</strong></p></div>
-<div class="card"><h3>Academic Coordinator</h3><p><strong>Mr. Muhammad Abid</strong></p></div>
-<div class="card"><h3>Academic Team</h3><p>Mathematics · English · Science · Career Counseling · Parent Coordination</p></div>
-</div></div></section>
+<section id="selection">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Student Selection</div>
+      <h2>Finding potential and commitment</h2>
+      <p>The initial phase will serve a limited number of promising, hardworking and talented students.</p>
+    </div>
+    <div class="two">
+      <div class="card">
+        <h3>Basic Criteria</h3>
+        <ul>
+          <li>Willingness to learn</li>
+          <li>Regular attendance</li>
+          <li>Parents’ cooperation</li>
+          <li>Teacher recommendation</li>
+          <li>Initial diagnostic assessment</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Our Approach</h3>
+        <p>Selection will consider more than academic marks. GECEC will look for commitment, potential, learning attitude and willingness to make consistent progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section id="roadmap"><div class="wrap"><div class="head"><div class="label">Five-Year Development Plan</div><h2>2026 → 2031</h2><p>A phased vision for a comprehensive rural education and career ecosystem.</p></div><div class="timeline">
-<div class="year"><strong>2026</strong>Launch first cohort and establish core academic and counseling programmes.</div>
-<div class="year"><strong>2027</strong>Strengthen the Virtual School, community learning resources and skills training.</div>
-<div class="year"><strong>2028–29</strong>Develop AI & Computer Lab, language programmes and scholarship guidance.</div>
-<div class="year"><strong>2030–31</strong>Build university admission and career counseling services and explore neighboring villages.</div>
-</div><div class="card" style="margin-top:20px"><h3>Planned Facilities & Services</h3><p>Modern Virtual School · Community Library · AI & Computer Lab · English & German Language Center · Scholarship Guidance Cell · University Admission Help Desk · Career Counseling Center · Expansion to Neighboring Villages</p></div></div></section>
+<section class="soft">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Leadership</div>
+      <h2>Community-driven structure</h2>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Patrons</h3><p>Senior teachers, educationists and respected community members.</p></div>
+      <div class="card"><h3>Chief Operating Officer</h3><p><strong>Mr. Tariq Mehmood</strong></p></div>
+      <div class="card"><h3>Executive Coordinator</h3><p><strong>Mr. Tariq Taj</strong></p></div>
+      <div class="card"><h3>Administrator</h3><p><strong>Mr. Farooq</strong></p></div>
+      <div class="card"><h3>Academic Coordinator</h3><p><strong>Mr. Muhammad Abid</strong></p></div>
+      <div class="card"><h3>Academic Team</h3><p>Mathematics · English · Science · Career Counseling · Parent Coordination</p></div>
+    </div>
+  </div>
+</section>
 
-<section><div class="wrap"><div class="head"><div class="label">Our Values</div><h2>What guides us</h2></div><div class="values"><span class="value">Integrity</span><span class="value">Excellence</span><span class="value">Discipline</span><span class="value">Respect</span><span class="value">Service</span><span class="value">Innovation</span><span class="value">Continuous Learning</span></div></div></section>
+<section id="roadmap">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Five-Year Development Plan</div>
+      <h2>2026 → 2031</h2>
+      <p>A phased vision for a comprehensive rural education and career ecosystem.</p>
+    </div>
+    <div class="timeline">
+      <div class="year"><strong>2026</strong>Launch first cohort and establish core academic and counseling programmes.</div>
+      <div class="year"><strong>2027</strong>Strengthen the Virtual School, community learning resources and skills training.</div>
+      <div class="year"><strong>2028–29</strong>Develop AI & Computer Lab, language programmes and scholarship guidance.</div>
+      <div class="year"><strong>2030–31</strong>Build university admission and career counseling services and explore neighboring villages.</div>
+    </div>
+    <div class="card" style="margin-top:2rem;">
+      <h3>Planned Facilities & Services</h3>
+      <p>Modern Virtual School · Community Library · AI & Computer Lab · English & German Language Center · Scholarship Guidance Cell · University Admission Help Desk · Career Counseling Center · Expansion to Neighboring Villages</p>
+    </div>
+  </div>
+</section>
 
-<section class="cta"><div class="wrap"><h2>“Every child matters, every dream is valuable, and every student deserves the opportunity to succeed.”</h2><p>GECEC is a completely free, non-profit, community-based educational initiative dedicated to better education, effective guidance, modern skills and pathways toward a brighter future.</p><a class="btn primary" href="#home">From Village to the World</a></div></section>
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Our Values</div>
+      <h2>What guides us</h2>
+    </div>
+    <div class="values">
+      <span class="value">Integrity</span>
+      <span class="value">Excellence</span>
+      <span class="value">Discipline</span>
+      <span class="value">Respect</span>
+      <span class="value">Service</span>
+      <span class="value">Innovation</span>
+      <span class="value">Continuous Learning</span>
+    </div>
+  </div>
+</section>
 
-<footer><div class="wrap foot"><div><strong>GECEC</strong><br><span class="small">Gigay Wali Education & Career Excellence Center</span></div><div class="small">A Free Social & Educational Service · Gigay Wali, District Narowal</div></div></footer>
-</body></html>
+<section class="cta">
+  <div class="wrap">
+    <h2>“Every child matters, every dream is valuable, and every student deserves the opportunity to succeed.”</h2>
+    <p>GECEC is a completely free, non-profit, community-based educational initiative dedicated to better education, effective guidance, modern skills and pathways toward a brighter future.</p>
+    <a class="btn primary" href="#home">From Village to the World</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><strong>GECEC</strong><br><span class="small">Gigay Wali Education & Career Excellence Center</span></div>
+    <div class="small">A Free Social & Educational Service · Gigay Wali, District Narowal</div>
+  </div>
+</footer>
+
+<!-- Back to top interactive button -->
+<a href="#" class="totop" id="toTop" aria-label="Back to top">↑</a>
+
+<script>
+  (function() {
+    // Back to top button visibility
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 500) {
+        toTop.classList.add('show');
+      } else {
+        toTop.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll for all internal anchors (already in CSS, but ensures offset)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // optional: card tilt micro-effect on grid cards (subtle)
+    const cards = document.querySelectorAll('.card, .day, .year');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 30;
+        const rotateY = (centerX - x) / 30;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  })();
+</script>
+</body>
+</html>
